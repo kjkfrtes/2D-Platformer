@@ -1,84 +1,62 @@
-[gd_scene load_steps=12 format=4 uid="uid://bh5lescmnhpky"]
+[gd_scene format=4 uid="uid://bh5lescmnhpky"]
 
 [ext_resource type="Texture2D" uid="uid://daddmg1hkc27d" path="res://Sprites/Backgrounds/backgroundForest.png" id="1_vnunq"]
 [ext_resource type="TileSet" uid="uid://bphy4st8ym4ie" path="res://Sprites/Tiles/new_tile_set.tres" id="2_nw7js"]
 [ext_resource type="PackedScene" uid="uid://dv0g1jn3n7ini" path="res://Scenes/player.tscn" id="3_nh7xm"]
-[ext_resource type="Script" uid="uid://cnvkmbo8e11kh" path="res://Scripts/enemy.gd" id="4_nh7xm"]
-[ext_resource type="Texture2D" uid="uid://cw8ve08co5tms" path="res://Sprites/Characters/character_0024.png" id="5_j0k67"]
-[ext_resource type="Texture2D" uid="uid://7j5f58v817vc" path="res://Sprites/Characters/character_0025.png" id="6_5r5j8"]
-[ext_resource type="Texture2D" uid="uid://ccpqftl2qj5by" path="res://Sprites/Characters/character_0026.png" id="7_akpl7"]
+[ext_resource type="PackedScene" uid="uid://7r26fmpk331t" path="res://Scenes/end_flag.tscn" id="4_j0k67"]
+[ext_resource type="PackedScene" uid="uid://eyths1tg8jyi" path="res://Scenes/enemy.tscn" id="4_nw7js"]
+[ext_resource type="PackedScene" uid="uid://ju24emxsiasv" path="res://Scenes/coin.tscn" id="5_nh7xm"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_5r5j8"]
-radius = 7.071068
+[node name="Main" type="Node2D" unique_id=1189919339]
 
-[sub_resource type="Animation" id="Animation_aur7v"]
-resource_name = "Fly"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.26666668),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("5_j0k67"), ExtResource("6_5r5j8"), ExtResource("7_akpl7")]
-}
-
-[sub_resource type="Animation" id="Animation_ptpgp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("5_j0k67")]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2uqsa"]
-_data = {
-&"Fly": SubResource("Animation_aur7v"),
-&"RESET": SubResource("Animation_ptpgp")
-}
-
-[node name="Main" type="Node2D"]
-
-[node name="BackgroundSprite" type="Sprite2D" parent="."]
+[node name="BackgroundSprite" type="Sprite2D" parent="." unique_id=1409678006]
 position = Vector2(385, -8)
 texture = ExtResource("1_vnunq")
 metadata/_edit_lock_ = true
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1040289666]
 tile_map_data = PackedByteArray("AAAAAAIAAAACAAAAAAABAAIAAAACAAAAAAACAAIAAAACAAAAAAADAAIAAAACAAAAAAAEAAIAAAACAAAAAAAEAAMAAAACAAAAAAAFAAMAAAACAAAAAAAGAAMAAAACAAAAAAAJAAMAAAAMAAAAAAAKAAIAAAAMAAAAAAALAAIAAAANAAAAAAAMAAIAAAANAAAAAAANAAEAAAANAAAAAAAOAAEAAAANAAAAAAARAAQAAAANAAEAAAASAAQAAAANAAEAAAATAAQAAAANAAEAAAARAAUAAAAEAAAAAAASAAUAAAAEAAAAAAATAAUAAAAEAAAAAAAUAAUAAAAEAAAAAAAVAAUAAAAEAAAAAAACAAEAAAAGAAEAAAAUAAQAAAACAAIAAAAVAAQAAAACAAIAAAAWAAQAAAAFAAEAAAAWAAMAAAACAAIAAAAWAAUAAAAFAAEAAAAZAAMAAAACAAUAAAAaAAMAAAACAAUAAAAbAAMAAAACAAUAAAAJAAQAAAAMAAEAAAAKAAMAAAAMAAIAAAALAAMAAAAMAAIAAAAKAAQAAAAMAAIAAAANAAIAAAAMAAIAAAANAAMAAAAMAAIAAAAJAAUAAAAEAAEAAAAKAAUAAAAEAAEAAAANAAQAAAAEAAEAAAAMAAQAAAAEAAEAAAALAAQAAAAEAAEAAAALAAUAAAAEAAEAAAADAAMAAAAEAAEAAAACAAMAAAAEAAEAAAABAAMAAAAEAAEAAAAAAAMAAAAEAAEAAAAAAAQAAAAEAAEAAAABAAQAAAAEAAEAAAACAAQAAAAEAAEAAAADAAQAAAAEAAEAAAAEAAQAAAAEAAEAAAAFAAQAAAAEAAEAAAAGAAQAAAAEAAEAAAAZAAQAAAACAAYAAAAaAAQAAAACAAYAAAAbAAQAAAACAAYAAAAfAAMAAAACAAUAAAAgAAMAAAACAAUAAAAhAAMAAAACAAUAAAAiAAMAAAACAAUAAAAjAAMAAAACAAUAAAAkAAMAAAACAAYAAAAkAAIAAAACAAUAAAAnAAMAAAANAAEAAAArAAIAAAANAAEAAAAnAAQAAAAJAAEAAAArAAMAAAAJAAEAAAA=")
 tile_set = ExtResource("2_nw7js")
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="." instance=ExtResource("3_nh7xm")]
+[node name="Player" parent="." unique_id=742306415 instance=ExtResource("3_nh7xm")]
 position = Vector2(14, 35)
 
-[node name="Enemy" type="Area2D" parent="."]
-position = Vector2(170, 45)
-script = ExtResource("4_nh7xm")
-move_direction = Vector2(0, -50)
-metadata/_edit_group_ = true
+[node name="EndFlag" parent="." unique_id=1603874988 instance=ExtResource("4_j0k67")]
+position = Vector2(659, 28)
+scene_to_load = ExtResource("3_nh7xm")
 
-[node name="Sprite" type="Sprite2D" parent="Enemy"]
-texture = ExtResource("5_j0k67")
+[node name="Coins" type="Node2D" parent="." unique_id=1960876504]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
-shape = SubResource("CircleShape2D_5r5j8")
+[node name="Coin" parent="Coins" unique_id=1570100903 instance=ExtResource("5_nh7xm")]
+position = Vector2(101, 45)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy"]
-libraries = {
-&"": SubResource("AnimationLibrary_2uqsa")
-}
+[node name="Coin2" parent="Coins" unique_id=937870599 instance=ExtResource("5_nh7xm")]
+position = Vector2(385, 64)
 
-[connection signal="body_entered" from="Enemy" to="Enemy" method="_on_body_entered"]
+[node name="Coin4" parent="Coins" unique_id=1100553208 instance=ExtResource("5_nh7xm")]
+position = Vector2(708, 64)
+
+[node name="Coin3" parent="Coins" unique_id=525843183 instance=ExtResource("5_nh7xm")]
+position = Vector2(492, 45)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=995510151]
+position = Vector2(0, 1)
+
+[node name="Enemy" parent="Enemies" unique_id=1466916917 instance=ExtResource("4_nw7js")]
+position = Vector2(168.85448, 42.399414)
+move_direction = Vector2(-50, 0)
+
+[node name="Enemy2" parent="Enemies" unique_id=80356480 instance=ExtResource("4_nw7js")]
+position = Vector2(287.5084, 37.340164)
+move_direction = Vector2(0, -70)
+move_speed = 30.0
+
+[node name="Enemy3" parent="Enemies" unique_id=1174219503 instance=ExtResource("4_nw7js")]
+position = Vector2(431, 74)
+move_speed = 40.0
+
+[node name="Enemy4" parent="Enemies" unique_id=200237377 instance=ExtResource("4_nw7js")]
+position = Vector2(457, 43)
+move_direction = Vector2(180, 0)
+move_speed = 50.0
