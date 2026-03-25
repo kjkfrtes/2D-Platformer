@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://dm4f85m18rkkw" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://bvkwdcftqphax" path="res://Sprites/Characters/character_0006.png" id="1_v0iea"]
 [ext_resource type="Texture2D" uid="uid://dilrt1oeixf0x" path="res://Sprites/Characters/character_0007.png" id="3_6t5aa"]
+[ext_resource type="Script" uid="uid://cwsuk53rl3upj" path="res://Scripts/camera_shake.gd" id="3_x3wgy"]
+[ext_resource type="Script" uid="uid://qmw8s4lambmm" path="res://Scripts/player_ui.gd" id="4_fkybt"]
+[ext_resource type="Texture2D" uid="uid://miq1be7j6s70" path="res://Sprites/Objects/tile_0044.png" id="4_vgqql"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
 height = 24.0
@@ -78,6 +81,11 @@ _data = {
 &"RESET": SubResource("Animation_fkybt")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_fkybt"]
+font_size = 40
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 0.5686275)
+
 [node name="Player" type="CharacterBody2D" unique_id=423757380 groups=["Player"]]
 script = ExtResource("1_cvnsp")
 
@@ -92,8 +100,39 @@ shape = SubResource("CapsuleShape2D_cvnsp")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1034102952]
 position = Vector2(0, -38)
 zoom = Vector2(3, 3)
+script = ExtResource("3_x3wgy")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1407651536]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=108181654]
 libraries/ = SubResource("AnimationLibrary_8erm5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1127894101]
+script = ExtResource("4_fkybt")
+
+[node name="HealthContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=372854500]
+offset_right = 80.0
+offset_bottom = 80.0
+
+[node name="Heart" type="TextureRect" parent="CanvasLayer/HealthContainer" unique_id=715665769]
+layout_mode = 2
+texture = ExtResource("4_vgqql")
+expand_mode = 2
+
+[node name="Heart2" type="TextureRect" parent="CanvasLayer/HealthContainer" unique_id=1550354335]
+layout_mode = 2
+texture = ExtResource("4_vgqql")
+expand_mode = 2
+
+[node name="Heart3" type="TextureRect" parent="CanvasLayer/HealthContainer" unique_id=326595662]
+layout_mode = 2
+texture = ExtResource("4_vgqql")
+expand_mode = 2
+
+[node name="ScoreText" type="Label" parent="CanvasLayer" unique_id=512501816]
+offset_left = 19.0
+offset_top = 77.0
+offset_right = 225.0
+offset_bottom = 113.0
+text = "Score: 500"
+label_settings = SubResource("LabelSettings_fkybt")

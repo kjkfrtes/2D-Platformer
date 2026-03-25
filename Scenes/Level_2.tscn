@@ -1,0 +1,122 @@
+[gd_scene format=4 uid="uid://bt1yj4w36bud6"]
+
+[ext_resource type="Script" uid="uid://dfoqjys73ibnp" path="res://Scripts/background_parallax.gd" id="1_cleky"]
+[ext_resource type="Texture2D" uid="uid://bpkkj4i0lidm8" path="res://Sprites/Backgrounds/backgroundDesert.png" id="2_cleky"]
+[ext_resource type="TileSet" uid="uid://bphy4st8ym4ie" path="res://Sprites/Tiles/new_tile_set.tres" id="3_8npbe"]
+[ext_resource type="PackedScene" uid="uid://dv0g1jn3n7ini" path="res://Scenes/player.tscn" id="4_001cu"]
+[ext_resource type="PackedScene" uid="uid://7r26fmpk331t" path="res://Scenes/end_flag.tscn" id="5_5ufib"]
+[ext_resource type="PackedScene" uid="uid://ba2bdev3y1o0i" path="res://Scenes/menu.tscn" id="6_4ge3q"]
+[ext_resource type="PackedScene" uid="uid://ju24emxsiasv" path="res://Scenes/coin.tscn" id="6_diio2"]
+[ext_resource type="PackedScene" uid="uid://eyths1tg8jyi" path="res://Scenes/enemy.tscn" id="7_v1bqs"]
+
+[node name="Main" type="Node2D" unique_id=1189919339]
+
+[node name="Background" type="Node2D" parent="." unique_id=1946606017]
+script = ExtResource("1_cleky")
+metadata/_edit_lock_ = true
+
+[node name="BackgroundSprite" type="Sprite2D" parent="Background" unique_id=1409678006]
+modulate = Color(1, 1, 0.7137255, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_cleky")
+
+[node name="BackgroundSprite3" type="Sprite2D" parent="Background" unique_id=704485183]
+modulate = Color(1, 1, 0.7137255, 1)
+position = Vector2(1024, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_cleky")
+
+[node name="BackgroundSprite4" type="Sprite2D" parent="Background" unique_id=1104965689]
+modulate = Color(1, 1, 0.7137255, 1)
+position = Vector2(-512, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_cleky")
+
+[node name="BackgroundSprite5" type="Sprite2D" parent="Background" unique_id=1894523479]
+modulate = Color(1, 1, 0.7137255, 1)
+position = Vector2(-1024, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_cleky")
+
+[node name="BackgroundSprite2" type="Sprite2D" parent="Background" unique_id=1536873807]
+modulate = Color(1, 1, 0.7137255, 1)
+position = Vector2(512, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_cleky")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1040289666]
+tile_map_data = PackedByteArray("AAAAAAIAAAABAAIAAAABAAIAAAACAAIAAAACAAIAAAACAAIAAAADAAIAAAACAAIAAAAEAAIAAAANAAIAAAAFAAIAAAANAAIAAAAEAAMAAAAEAAEAAAAFAAMAAAAEAAEAAAADAAMAAAAEAAEAAAAJAAMAAAAAAAIAAAANAAMAAAAAAAIAAAAQAAIAAAAAAAIAAAATAAMAAAABAAIAAAAUAAMAAAACAAIAAAAVAAMAAAACAAIAAAAWAAIAAAABAAIAAAAWAAMAAAAEAAEAAAAXAAMAAAAEAAEAAAAXAAIAAAAEAAEAAAAYAAIAAAAEAAEAAAAXAAEAAAANAAIAAAAYAAEAAAANAAIAAAAZAAIAAAANAAMAAAAZAAEAAAANAAIAAAAaAAIAAAANAAIAAAAZAAMAAAANAAMAAAAYAAMAAAANAAMAAAAaAAMAAAANAAMAAAAXAAQAAAANAAMAAAAYAAQAAAANAAMAAAAZAAQAAAANAAMAAAAaAAQAAAANAAMAAAAaAAUAAAANAAMAAAAaAAYAAAANAAMAAAAaAAcAAAANAAMAAAAZAAUAAAANAAMAAAAYAAUAAAANAAMAAAAWAAYAAAACAAMAAAAXAAYAAAACAAMAAAAYAAYAAAACAAMAAAAZAAYAAAACAAMAAAAbAAQAAAACAAMAAAAcAAQAAAACAAMAAAAdAAQAAAACAAMAAAAeAAMAAAACAAMAAAAiAAIAAAACAAMAAAAVAAYAAAACAAMAAAAUAAYAAAACAAMAAAAOAAYAAAACAAMAAAAPAAYAAAACAAMAAAAQAAYAAAACAAMAAAALAAYAAAACAAMAAAAcAAcAAAACAAMAAAAdAAcAAAACAAMAAAAaAAgAAAANAAMAAAAbAAgAAAANAAMAAAAbAAkAAAANAAMAAAAcAAoAAAANAAMAAAAbAAMAAAANAAMAAAAGAAIAAAANAAMAAAAGAAMAAAANAAMAAAAGAAQAAAANAAMAAAAGAAUAAAANAAMAAAAGAAcAAAANAAMAAAAGAAgAAAANAAMAAAA=")
+tile_set = ExtResource("3_8npbe")
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." unique_id=742306415 instance=ExtResource("4_001cu")]
+position = Vector2(14, 35)
+
+[node name="EndFlag" parent="." unique_id=1603874988 instance=ExtResource("5_5ufib")]
+position = Vector2(210, 98)
+scene_to_load = ExtResource("6_4ge3q")
+
+[node name="Coins" type="Node2D" parent="." unique_id=1960876504]
+
+[node name="Coin" parent="Coins" unique_id=1570100903 instance=ExtResource("6_diio2")]
+position = Vector2(99, 46)
+
+[node name="Coin2" parent="Coins" unique_id=1779309749 instance=ExtResource("6_diio2")]
+position = Vector2(244, 46)
+
+[node name="Coin3" parent="Coins" unique_id=2060487749 instance=ExtResource("6_diio2")]
+position = Vector2(371, 100)
+
+[node name="Coin4" parent="Coins" unique_id=1929616608 instance=ExtResource("6_diio2")]
+position = Vector2(621, 26)
+
+[node name="Coin5" parent="Coins" unique_id=254682711 instance=ExtResource("6_diio2")]
+position = Vector2(533, 115)
+
+[node name="Coin6" parent="Coins" unique_id=1547803975 instance=ExtResource("6_diio2")]
+position = Vector2(386, 44)
+
+[node name="Coin7" parent="Coins" unique_id=1462241597 instance=ExtResource("6_diio2")]
+position = Vector2(529, 64)
+
+[node name="Coin8" parent="Coins" unique_id=222775226 instance=ExtResource("6_diio2")]
+position = Vector2(298, 99)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=995510151]
+position = Vector2(0, 1)
+
+[node name="Enemy" parent="Enemies" unique_id=1466916917 instance=ExtResource("7_v1bqs")]
+position = Vector2(82, 42)
+move_direction = Vector2(200, 0)
+move_speed = 60.0
+
+[node name="Enemy2" parent="Enemies" unique_id=440469482 instance=ExtResource("7_v1bqs")]
+position = Vector2(277, 9)
+move_direction = Vector2(0, 100)
+move_speed = 30.0
+
+[node name="Enemy3" parent="Enemies" unique_id=2010515011 instance=ExtResource("7_v1bqs")]
+position = Vector2(189, 35)
+move_direction = Vector2(0, 50)
+
+[node name="Enemy4" parent="Enemies" unique_id=1055940766 instance=ExtResource("7_v1bqs")]
+position = Vector2(224, 36)
+move_direction = Vector2(0, 50)
+
+[node name="Enemy5" parent="Enemies" unique_id=646722527 instance=ExtResource("7_v1bqs")]
+position = Vector2(205, 35)
+move_direction = Vector2(0, 50)
+
+[node name="Enemy6" parent="Enemies" unique_id=142302074 instance=ExtResource("7_v1bqs")]
+position = Vector2(206, 96)
+move_direction = Vector2(-200, 0)
+
+[node name="Enemy7" parent="Enemies" unique_id=1473956211 instance=ExtResource("7_v1bqs")]
+position = Vector2(479, 117)
+move_direction = Vector2(100, 0)
+move_speed = 30.0
+
+[node name="Enemy8" parent="Enemies" unique_id=1122359026 instance=ExtResource("7_v1bqs")]
+position = Vector2(445, 64)
+move_direction = Vector2(80, 0)
+move_speed = 60.0
