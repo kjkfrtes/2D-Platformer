@@ -60,7 +60,7 @@ func _damage_flash  ():
 	sprite.modulate = Color.WHITE
 
 func game_over():
-	get_tree().change_scene_to_file("res://Scenes/Level_1.tscn")
+	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 
 func increase_score (amount : int):
 	PlayerStats.score += amount
