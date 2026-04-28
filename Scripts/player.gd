@@ -20,7 +20,7 @@ func _process(delta):
 		sprite.flip_h = velocity.x>0
 	_manage_animation()
 	
-	if  global_position.y>200:
+	if  global_position.y>400:
 		game_over()
 
 func _manage_animation (): 
