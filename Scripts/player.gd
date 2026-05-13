@@ -12,6 +12,7 @@ extends CharacterBody2D
 signal OnUpdateHealth (health:int)
 signal OnUpdateScore (score:int)
 var move_input : float
+var has_double_jumped : bool = false
 var take_damage_sfx : AudioStream = preload("res://Audio/take_damage.wav")
 var coin_sfx : AudioStream = preload("res://Audio/coin.wav")
 
@@ -41,8 +42,12 @@ func _physics_process(delta):
 	else:
 		velocity.x = lerp(velocity.x, 0.0, breaking * delta)
 	
-	if Input.is_action_pressed("Jump") and is_on_floor():
-		velocity.y = -jump_force
+	if Input.is_action_just_pressed("Jump"):
+		if is_on_floor():
+			velocity.y = -jump_force
+		elif not has_double_jumped:
+			velocity.y = -jump_force
+			
 	move_and_slide()
 
 func take_damage(amount:int):

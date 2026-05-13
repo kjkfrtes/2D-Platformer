@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://bh5lescmnhpky"]
 
 [ext_resource type="Script" uid="uid://dfoqjys73ibnp" path="res://Scripts/background_parallax.gd" id="1_5r5j8"]
+[ext_resource type="Script" uid="uid://cyruc2kw5ov7r" path="res://Scenes/level_1.gd" id="1_ptpgp"]
 [ext_resource type="Texture2D" uid="uid://daddmg1hkc27d" path="res://Sprites/Backgrounds/backgroundForest.png" id="1_vnunq"]
 [ext_resource type="TileSet" uid="uid://bphy4st8ym4ie" path="res://Sprites/Tiles/new_tile_set.tres" id="2_nw7js"]
 [ext_resource type="PackedScene" uid="uid://dv0g1jn3n7ini" path="res://Scenes/player.tscn" id="3_nh7xm"]
@@ -8,8 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://eyths1tg8jyi" path="res://Scenes/enemy.tscn" id="4_nw7js"]
 [ext_resource type="PackedScene" uid="uid://ju24emxsiasv" path="res://Scenes/coin.tscn" id="5_nh7xm"]
 [ext_resource type="PackedScene" uid="uid://bt1yj4w36bud6" path="res://Scenes/Level_2.tscn" id="6_akpl7"]
+[ext_resource type="AudioStream" uid="uid://bfklw31xisxqn" path="res://Sprites/Characters/audiopapkin-forest-ambience-296528.mp3" id="9_aur7v"]
 
 [node name="Main" type="Node2D" unique_id=1189919339]
+script = ExtResource("1_ptpgp")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1274239220]
+stream = ExtResource("9_aur7v")
+parameters/looping = true
 
 [node name="Background" type="Node2D" parent="." unique_id=1946606017]
 script = ExtResource("1_5r5j8")
