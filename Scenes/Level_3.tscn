@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c62ulwdhhey4q"]
+[gd_scene format=3 uid="uid://c62ulwdhhey4q"]
 
 [ext_resource type="Script" uid="uid://dfoqjys73ibnp" path="res://Scripts/background_parallax.gd" id="1_ale0u"]
 [ext_resource type="Texture2D" uid="uid://4suyrq3fwxwn" path="res://Sprites/Backgrounds/8bit-pixel-art-night-sky-game-space-landscape-vector.jpg" id="2_ccifb"]
@@ -7,34 +7,34 @@
 [ext_resource type="PackedScene" uid="uid://7r26fmpk331t" path="res://Scenes/end_flag.tscn" id="5_dudvk"]
 [ext_resource type="PackedScene" uid="uid://ba2bdev3y1o0i" path="res://Scenes/menu.tscn" id="6_m08rq"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=1514734415]
 
-[node name="Background" type="Node2D" parent="."]
+[node name="Background" type="Node2D" parent="." unique_id=985455218]
 script = ExtResource("1_ale0u")
 
-[node name="8BitPixelArtNightSkyGameSpaceLandscapeVector" type="Sprite2D" parent="Background"]
-position = Vector2(-192.00012, -7.6293945e-06)
-scale = Vector2(0.619, 0.5)
+[node name="8BitPixelArtNightSkyGameSpaceLandscapeVector2" type="Sprite2D" parent="Background" unique_id=774665059]
+position = Vector2(304, -79.999985)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_ccifb")
 
-[node name="8BitPixelArtNightSkyGameSpaceLandscapeVector2" type="Sprite2D" parent="Background"]
-position = Vector2(592, 0)
-scale = Vector2(0.5, 0.5)
+[node name="8BitPixelArtNightSkyGameSpaceLandscapeVector" type="Sprite2D" parent="Background" unique_id=37226835]
+position = Vector2(304, -88)
+scale = Vector2(0.7, 0.565)
 texture = ExtResource("2_ccifb")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=460758876]
 tile_map_data = PackedByteArray(0, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 0, 0, 0, 0)
 tile_set = ExtResource("3_dvi3f")
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="." instance=ExtResource("4_151xs")]
+[node name="Player" parent="." unique_id=730313178 instance=ExtResource("4_151xs")]
 position = Vector2(14, 35)
 
-[node name="EndFlag" parent="." instance=ExtResource("5_dudvk")]
+[node name="EndFlag" parent="." unique_id=109849932 instance=ExtResource("5_dudvk")]
 position = Vector2(365, 43)
 scene_to_load = ExtResource("6_m08rq")
 
-[node name="Coins" type="Node2D" parent="."]
+[node name="Coins" type="Node2D" parent="." unique_id=1960840589]
 
-[node name="Enemies" type="Node2D" parent="."]
+[node name="Enemies" type="Node2D" parent="." unique_id=1602133140]
 position = Vector2(0, 1)
