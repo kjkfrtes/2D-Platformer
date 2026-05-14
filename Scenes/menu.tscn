@@ -5,7 +5,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_158mb"]
 font_size = 48
-font_color = Color(0.74509805, 0.47058824, 0.95686275, 1)
+font_color = Color(0.74509805, 0.13725491, 0.95686275, 1)
 outline_size = 5
 outline_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 
@@ -38,7 +38,7 @@ offset_right = 223.5
 offset_bottom = 90.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "2D Platformer "
+text = "Wayward 2.0"
 label_settings = SubResource("LabelSettings_158mb")
 horizontal_alignment = 1
 vertical_alignment = 1
