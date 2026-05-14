@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dv0g1jn3n7ini"]
+[gd_scene format=3 uid="uid://dv0g1jn3n7ini"]
 
 [ext_resource type="Script" uid="uid://dm4f85m18rkkw" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://bvkwdcftqphax" path="res://Sprites/Characters/character_0006.png" id="1_v0iea"]
@@ -14,49 +14,49 @@ font_size = 40
 shadow_size = 6
 shadow_color = Color(0, 0, 0, 0.5686275)
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[node name="Player" type="CharacterBody2D" unique_id=2101627578 groups=["Player"]]
 script = ExtResource("1_cvnsp")
 
-[node name="sprite" type="Sprite2D" parent="."]
+[node name="sprite" type="Sprite2D" parent="." unique_id=1953398818]
 texture = ExtResource("1_v0iea")
 offset = Vector2(0, -12)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2119237045]
 position = Vector2(0, -12)
 shape = SubResource("CapsuleShape2D_cvnsp")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1203793694]
 position = Vector2(0, -38)
 zoom = Vector2(3, 3)
 script = ExtResource("3_x3wgy")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2016422003]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=36920447]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1940107558]
 script = ExtResource("4_fkybt")
 
-[node name="HealthContainer" type="HBoxContainer" parent="CanvasLayer"]
+[node name="HealthContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1658664766]
 offset_right = 80.0
 offset_bottom = 80.0
 
-[node name="Heart" type="TextureRect" parent="CanvasLayer/HealthContainer"]
+[node name="Heart" type="TextureRect" parent="CanvasLayer/HealthContainer" unique_id=2081572830]
 layout_mode = 2
 texture = ExtResource("4_vgqql")
 expand_mode = 2
 
-[node name="Heart2" type="TextureRect" parent="CanvasLayer/HealthContainer"]
+[node name="Heart2" type="TextureRect" parent="CanvasLayer/HealthContainer" unique_id=887299815]
 layout_mode = 2
 texture = ExtResource("4_vgqql")
 expand_mode = 2
 
-[node name="Heart3" type="TextureRect" parent="CanvasLayer/HealthContainer"]
+[node name="Heart3" type="TextureRect" parent="CanvasLayer/HealthContainer" unique_id=1226201364]
 layout_mode = 2
 texture = ExtResource("4_vgqql")
 expand_mode = 2
 
-[node name="ScoreText" type="Label" parent="CanvasLayer"]
+[node name="ScoreText" type="Label" parent="CanvasLayer" unique_id=1171088737]
 offset_left = 19.0
 offset_top = 77.0
 offset_right = 225.0
