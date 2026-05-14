@@ -18,19 +18,22 @@ var coin_sfx : AudioStream = preload("res://Audio/coin.wav")
 
 func _process(delta):
 	if velocity.x !=0:
-		sprite.flip_h = velocity.x>0
-#	_manage_animation()
+		sprite.flip_h = velocity.x<0
+	_manage_animation()
 	
-	if  global_position.y>400:
+	if  global_position.y>600:
 		game_over()
 
-#func _manage_animation (): 
-	#if not is_on_floor():
-		#anim.play("Jump")
+func _manage_animation (): 
+	if not is_on_floor() and velocity.y<0:
+		if anim.current_animation != "Jump":
+			anim.play("Jump")
+	elif not is_on_floor() and velocity.y>0:
+		pass
 	#elif move_input != 0:
 		#anim.play("Move")
-	#else:
-		#anim.play("Idle")
+	else:
+		anim.play("Idle")
 
 func _physics_process(delta):
 	if not is_on_floor():

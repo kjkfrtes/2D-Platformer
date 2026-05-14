@@ -1,13 +1,117 @@
 [gd_scene format=3 uid="uid://dv0g1jn3n7ini"]
 
 [ext_resource type="Script" uid="uid://dm4f85m18rkkw" path="res://Scripts/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://bvkwdcftqphax" path="res://Sprites/Characters/character_0006.png" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://chromqe7htq0y" path="res://Sprites/ANIMATIONS/Walk/Charachter1.png" id="2_fkybt"]
+[ext_resource type="Texture2D" uid="uid://bc8dlin26nbga" path="res://Sprites/ANIMATIONS/Jump/JUMP_CHAR-export3.png" id="3_3smsa"]
+[ext_resource type="Texture2D" uid="uid://bcqu7o0uwapw4" path="res://Sprites/ANIMATIONS/Jump/JUMP_CHAR-export1.png" id="3_tx1dd"]
 [ext_resource type="Script" uid="uid://cwsuk53rl3upj" path="res://Scripts/camera_shake.gd" id="3_x3wgy"]
 [ext_resource type="Script" uid="uid://qmw8s4lambmm" path="res://Scripts/player_ui.gd" id="4_fkybt"]
+[ext_resource type="Texture2D" uid="uid://c8c4hvh0l6vlf" path="res://Sprites/ANIMATIONS/Idle/IDLE_CHAR1.png" id="4_gymyn"]
 [ext_resource type="Texture2D" uid="uid://miq1be7j6s70" path="res://Sprites/Objects/tile_0044.png" id="4_vgqql"]
+[ext_resource type="Texture2D" uid="uid://drodpro6sx1gg" path="res://Sprites/ANIMATIONS/Idle/IDLE_CHAR2.png" id="5_pu2lt"]
+[ext_resource type="Texture2D" uid="uid://w8oosuukgx2d" path="res://Sprites/ANIMATIONS/Idle/IDLE_CHAR3.png" id="6_ukyrk"]
+[ext_resource type="Texture2D" uid="uid://cci5hd4s51hbg" path="res://Sprites/ANIMATIONS/Idle/IDLE_CHAR4.png" id="7_gymyn"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
-height = 24.0
+[sub_resource type="Animation" id="Animation_7dp3o"]
+resource_name = "Idle"
+length = 3.2666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06540799, 0.64255464, 1.3, 2.0126505),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_gymyn"), ExtResource("5_pu2lt"), ExtResource("6_ukyrk"), ExtResource("7_gymyn")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.040314674),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -10)]
+}
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8erm5"]
+load_path = "res://.godot/imported/JUMP_CHAR-export2.png-5f19b67834bd1eb95eaf5beb75ad7475.ctex"
+
+[sub_resource type="Animation" id="Animation_f1ek2"]
+resource_name = "Jump"
+length = 0.6666667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.23333333, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_fkybt"), SubResource("CompressedTexture2D_8erm5"), ExtResource("3_3smsa"), ExtResource("3_tx1dd")]
+}
+
+[sub_resource type="Animation" id="Animation_gymyn"]
+resource_name = "Move"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_fkybt")]
+}
+
+[sub_resource type="Animation" id="Animation_tx1dd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_fkybt")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -12)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gymyn"]
+_data = {
+&"Idle": SubResource("Animation_7dp3o"),
+&"Jump": SubResource("Animation_f1ek2"),
+&"Move": SubResource("Animation_gymyn"),
+&"RESET": SubResource("Animation_tx1dd")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fkybt"]
+size = Vector2(27, 20)
 
 [sub_resource type="LabelSettings" id="LabelSettings_fkybt"]
 font_size = 40
@@ -18,12 +122,17 @@ shadow_color = Color(0, 0, 0, 0.5686275)
 script = ExtResource("1_cvnsp")
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=1953398818]
-texture = ExtResource("1_v0iea")
+position = Vector2(2.0000005, 3.4374986)
+scale = Vector2(0.65625, 0.828125)
+texture = ExtResource("2_fkybt")
 offset = Vector2(0, -12)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=36920447]
+libraries/ = SubResource("AnimationLibrary_gymyn")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2119237045]
-position = Vector2(0, -12)
-shape = SubResource("CapsuleShape2D_cvnsp")
+position = Vector2(1, -11)
+shape = SubResource("RectangleShape2D_fkybt")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1203793694]
 position = Vector2(0, -38)
@@ -32,12 +141,11 @@ script = ExtResource("3_x3wgy")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2016422003]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=36920447]
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1940107558]
 script = ExtResource("4_fkybt")
 
 [node name="HealthContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1658664766]
+visible = false
 offset_right = 80.0
 offset_bottom = 80.0
 
@@ -57,6 +165,7 @@ texture = ExtResource("4_vgqql")
 expand_mode = 2
 
 [node name="ScoreText" type="Label" parent="CanvasLayer" unique_id=1171088737]
+visible = false
 offset_left = 19.0
 offset_top = 77.0
 offset_right = 225.0
