@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dfoqjys73ibnp" path="res://Scripts/background_parallax.gd" id="1_ale0u"]
 [ext_resource type="Texture2D" uid="uid://4suyrq3fwxwn" path="res://Sprites/Backgrounds/8bit-pixel-art-night-sky-game-space-landscape-vector.jpg" id="2_ccifb"]
 [ext_resource type="TileSet" uid="uid://5pqnijj5owkc" path="res://Sprites/Legacy-Fantasy - High Forest 2.3/Assets/Level_3.tres" id="3_ccifb"]
-[ext_resource type="PackedScene" uid="uid://dv0g1jn3n7ini" path="res://Scenes/player.tscn" id="4_151xs"]
 [ext_resource type="PackedScene" uid="uid://7r26fmpk331t" path="res://Scenes/end_flag.tscn" id="5_dudvk"]
 [ext_resource type="PackedScene" uid="uid://ba2bdev3y1o0i" path="res://Scenes/menu.tscn" id="6_m08rq"]
 [ext_resource type="Script" uid="uid://3wdnre15kifo" path="res://Scenes/Kill.gd" id="7_y5hg5"]
@@ -35,12 +34,9 @@ scale = Vector2(0.7, 0.565)
 texture = ExtResource("2_ccifb")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=42264429]
-tile_map_data = PackedByteArray("AAAAAAIAAAAAAAEAAAABAAIAAAACAAEAAAACAAIAAAAEAAEAAAACAAEAAgAAAAoAAAADAAEAAgAAAAoAAAAEAAEAAgAAAAoAAAAGAAEAAgAAAAoAAAAFAAEAAgAAAAoAAAAHAAEAAgAAAAoAAAA=")
+tile_map_data = PackedByteArray("AAAAAAIAAAACAAEAAAABAAIAAAACAAEAAAACAAIAAAAEAAEAAAACAAEAAgAAAAoAAAADAAEAAgAAAAoAAAAEAAEAAgAAAAoAAAAGAAEAAgAAAAoAAAAFAAEAAgAAAAoAAAAHAAEAAgAAAAoAAAD//wIAAAACAAEAAAD+/wIAAAABAAEAAAD9/wIAAAACAAEAAAD8/wIAAAACAAEAAAD7/wIAAAABAAEAAAD6/wIAAAACAAEAAAD5/wIAAAABAAEAAAD4/wIAAAACAAEAAAD3/wIAAAACAAEAAAD2/wIAAAABAAEAAAD1/wIAAAACAAEAAAD0/wIAAAACAAEAAADz/wIAAAAAAAEAAAA=")
 tile_set = ExtResource("3_ccifb")
 metadata/_edit_lock_ = true
-
-[node name="Player" parent="." unique_id=730313178 instance=ExtResource("4_151xs")]
-position = Vector2(14, 35)
 
 [node name="EndFlag" parent="." unique_id=109849932 instance=ExtResource("5_dudvk")]
 position = Vector2(872, -720)
@@ -101,6 +97,5 @@ script = ExtResource("7_y5hg5")
 position = Vector2(80, 24)
 shape = SubResource("RectangleShape2D_ale0u")
 
-[connection signal="area_entered" from="Spikes" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Spikes" to="Spikes" method="_on_area_entered"]
 [connection signal="body_entered" from="Spikes" to="Background" method="_on_area_2d_body_entered"]

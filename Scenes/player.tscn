@@ -11,7 +11,41 @@
 [ext_resource type="Texture2D" uid="uid://drodpro6sx1gg" path="res://Sprites/ANIMATIONS/Idle/IDLE_CHAR2.png" id="5_pu2lt"]
 [ext_resource type="Texture2D" uid="uid://w8oosuukgx2d" path="res://Sprites/ANIMATIONS/Idle/IDLE_CHAR3.png" id="6_ukyrk"]
 [ext_resource type="Texture2D" uid="uid://cci5hd4s51hbg" path="res://Sprites/ANIMATIONS/Idle/IDLE_CHAR4.png" id="7_gymyn"]
+[ext_resource type="Texture2D" uid="uid://b6a8danc5muv4" path="res://Sprites/ANIMATIONS/Walk/Charachter2.png" id="9_fs7ks"]
+[ext_resource type="Texture2D" uid="uid://cxoctf6br11au" path="res://Sprites/ANIMATIONS/Walk/Charachter3.png" id="10_l6n3p"]
+[ext_resource type="Texture2D" uid="uid://dtglphm3kskkw" path="res://Sprites/ANIMATIONS/Walk/Charachter4.png" id="11_olqyp"]
 [ext_resource type="Texture2D" uid="uid://33ajhjd4d0c3" path="res://Sprites/Objects/tile_0067.png" id="12_pu2lt"]
+[ext_resource type="Texture2D" uid="uid://dm1gu28t2p05r" path="res://Sprites/ANIMATIONS/Walk/Charachter5.png" id="12_wpjfl"]
+[ext_resource type="Texture2D" uid="uid://didwgyhnc7ayp" path="res://Sprites/ANIMATIONS/Walk/Charachter6.png" id="13_bi64h"]
+[ext_resource type="Texture2D" uid="uid://6atpqiuy8ho4" path="res://Sprites/ANIMATIONS/Walk/Charachter7.png" id="14_2ijsl"]
+[ext_resource type="Texture2D" uid="uid://w7ld6y6qnor5" path="res://Sprites/ANIMATIONS/Walk/Charachter8.png" id="15_p1odr"]
+
+[sub_resource type="Animation" id="Animation_pu2lt"]
+resource_name = "Fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_fkybt")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.0000005, -3.562501)]
+}
 
 [sub_resource type="Animation" id="Animation_7dp3o"]
 resource_name = "Idle"
@@ -38,7 +72,19 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0.040314674),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -10)]
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.0000005, -3.562501)]
 }
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8erm5"]
@@ -60,6 +106,30 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("2_fkybt"), SubResource("CompressedTexture2D_8erm5"), ExtResource("3_3smsa"), ExtResource("3_tx1dd")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.0000005, -3.562501)]
+}
 
 [sub_resource type="Animation" id="Animation_gymyn"]
 resource_name = "Move"
@@ -70,10 +140,34 @@ tracks/0/path = NodePath("sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.23333333, 0.36666667, 0.5, 0.6333333, 0.76666665, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_fkybt"), ExtResource("9_fs7ks"), ExtResource("10_l6n3p"), ExtResource("11_olqyp"), ExtResource("12_wpjfl"), ExtResource("13_bi64h"), ExtResource("14_2ijsl"), ExtResource("15_p1odr"), ExtResource("2_fkybt")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.03333333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_fkybt")]
+"update": 0,
+"values": [Vector2(2.0000005, -3.562501)]
 }
 
 [sub_resource type="Animation" id="Animation_tx1dd"]
@@ -102,9 +196,22 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0, -12)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.0000005, -3.562501)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gymyn"]
 _data = {
+&"Fall": SubResource("Animation_pu2lt"),
 &"Idle": SubResource("Animation_7dp3o"),
 &"Jump": SubResource("Animation_f1ek2"),
 &"Move": SubResource("Animation_gymyn"),
@@ -122,8 +229,12 @@ shadow_color = Color(0, 0, 0, 0.5686275)
 [node name="Player" type="CharacterBody2D" unique_id=2101627578 groups=["Player"]]
 script = ExtResource("1_cvnsp")
 
+[node name="Timer" type="Timer" parent="." unique_id=1664245407]
+wait_time = 3.0
+autostart = true
+
 [node name="sprite" type="Sprite2D" parent="." unique_id=1953398818]
-position = Vector2(2.0000005, 3.4374986)
+position = Vector2(2.0000005, -3.562501)
 scale = Vector2(0.65625, 0.828125)
 texture = ExtResource("2_fkybt")
 offset = Vector2(0, -12)
@@ -132,7 +243,7 @@ offset = Vector2(0, -12)
 libraries/ = SubResource("AnimationLibrary_gymyn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2119237045]
-position = Vector2(1, -11)
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_fkybt")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1203793694]

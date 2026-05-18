@@ -15,6 +15,7 @@ var move_input : float
 var has_double_jumped : bool = false
 var take_damage_sfx : AudioStream = preload("res://Audio/take_damage.wav")
 var coin_sfx : AudioStream = preload("res://Audio/coin.wav")
+var waiting_for_idle = false
 
 func _process(_delta):
 	if velocity.x !=0:
@@ -29,11 +30,18 @@ func _manage_animation ():
 		if anim.current_animation != "Jump":
 			anim.play("Jump")
 	elif not is_on_floor() and velocity.y>0:
-		pass
-	#elif move_input != 0:
-		#anim.play("Move")
+		anim.play("Fall")
+	elif move_input != 0:
+		anim.play("Move")
 	else:
-		anim.play("Idle")
+		if not waiting_for_idle:
+			waiting_for_idle = true
+			await get_tree().create_timer(2.0).timeout
+			anim.play("Idle")
+			waiting_for_idle = false
+
+
+
 
 func _physics_process(delta):
 	if not is_on_floor():
