@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cx5sdi7qil7gf"]
+
+[ext_resource type="Script" uid="uid://bin8y62ayo88b" path="res://Scenes/book.gd" id="1_khdek"]
+[ext_resource type="Texture2D" uid="uid://33ajhjd4d0c3" path="res://Sprites/Objects/tile_0067.png" id="2_0vt1r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jb3vm"]
+size = Vector2(9.5, 8.5)
+
+[node name="Book" type="Area2D" unique_id=564750538]
+script = ExtResource("1_khdek")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=885132671]
+texture = ExtResource("2_0vt1r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1562145342]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_jb3vm")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

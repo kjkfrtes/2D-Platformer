@@ -7,7 +7,7 @@ var rotate_speed : float = 3.0
 var bob_height : float = 5.0
 var bob_speed : float = 5.0
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var time = Time.get_unix_time_from_system()
 	
 	sprite.scale.x = sin(time * rotate_speed)

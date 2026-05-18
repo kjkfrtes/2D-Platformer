@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cl7uy56sqnlh5"]
+
+[ext_resource type="Script" uid="uid://dluyfauaxpffp" path="res://Scenes/truck.gd" id="1_ncoh0"]
+[ext_resource type="Texture2D" uid="uid://c8m5xd6m6o73k" path="res://Sprites/Characters/character_0022.png" id="2_s4pd2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5131"]
+
+[node name="Truck" type="Area2D" unique_id=1466916917]
+script = ExtResource("1_ncoh0")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=213064853]
+texture = ExtResource("2_s4pd2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2105378287]
+shape = SubResource("RectangleShape2D_i5131")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=736919732]
+root_node = NodePath("")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

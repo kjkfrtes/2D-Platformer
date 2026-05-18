@@ -1,16 +1,23 @@
-[gd_scene format=3 uid="uid://c62ulwdhhey4q"]
+[gd_scene format=4 uid="uid://c62ulwdhhey4q"]
 
 [ext_resource type="Script" uid="uid://dfoqjys73ibnp" path="res://Scripts/background_parallax.gd" id="1_ale0u"]
 [ext_resource type="Texture2D" uid="uid://4suyrq3fwxwn" path="res://Sprites/Backgrounds/8bit-pixel-art-night-sky-game-space-landscape-vector.jpg" id="2_ccifb"]
-[ext_resource type="TileSet" uid="uid://bphy4st8ym4ie" path="res://Sprites/Tiles/new_tile_set.tres" id="3_dvi3f"]
+[ext_resource type="TileSet" uid="uid://5pqnijj5owkc" path="res://Sprites/Legacy-Fantasy - High Forest 2.3/Assets/Level_3.tres" id="3_ccifb"]
 [ext_resource type="PackedScene" uid="uid://dv0g1jn3n7ini" path="res://Scenes/player.tscn" id="4_151xs"]
 [ext_resource type="PackedScene" uid="uid://7r26fmpk331t" path="res://Scenes/end_flag.tscn" id="5_dudvk"]
 [ext_resource type="PackedScene" uid="uid://ba2bdev3y1o0i" path="res://Scenes/menu.tscn" id="6_m08rq"]
+[ext_resource type="Script" uid="uid://3wdnre15kifo" path="res://Scenes/Kill.gd" id="7_y5hg5"]
+[ext_resource type="PackedScene" uid="uid://cx5sdi7qil7gf" path="res://Scenes/book.tscn" id="8_ale0u"]
+[ext_resource type="PackedScene" uid="uid://cl7uy56sqnlh5" path="res://Scenes/truck.tscn" id="9_k6xtq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ale0u"]
+size = Vector2(98, 18)
 
 [node name="Main" type="Node2D" unique_id=1514734415]
 
 [node name="Background" type="Node2D" parent="." unique_id=985455218]
 script = ExtResource("1_ale0u")
+metadata/_edit_lock_ = true
 
 [node name="8BitPixelArtNightSkyGameSpaceLandscapeVector3" type="Sprite2D" parent="Background" unique_id=1304525065]
 position = Vector2(408.00003, -504)
@@ -23,13 +30,13 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_ccifb")
 
 [node name="8BitPixelArtNightSkyGameSpaceLandscapeVector" type="Sprite2D" parent="Background" unique_id=37226835]
-position = Vector2(304, -80)
+position = Vector2(304, -72)
 scale = Vector2(0.7, 0.565)
 texture = ExtResource("2_ccifb")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=460758876]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 0, 0, 0, 0)
-tile_set = ExtResource("3_dvi3f")
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=42264429]
+tile_map_data = PackedByteArray("AAAAAAIAAAAAAAEAAAABAAIAAAACAAEAAAACAAIAAAAEAAEAAAACAAEAAgAAAAoAAAADAAEAAgAAAAoAAAAEAAEAAgAAAAoAAAAGAAEAAgAAAAoAAAAFAAEAAgAAAAoAAAAHAAEAAgAAAAoAAAA=")
+tile_set = ExtResource("3_ccifb")
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=730313178 instance=ExtResource("4_151xs")]
@@ -41,5 +48,59 @@ scene_to_load = ExtResource("6_m08rq")
 
 [node name="Coins" type="Node2D" parent="." unique_id=1960840589]
 
-[node name="Enemies" type="Node2D" parent="." unique_id=1602133140]
+[node name="Books" type="Node2D" parent="." unique_id=1091569908]
+position = Vector2(16, -40)
+
+[node name="Book" parent="Books" unique_id=564750538 instance=ExtResource("8_ale0u")]
+
+[node name="Book2" parent="Books" unique_id=1802532856 instance=ExtResource("8_ale0u")]
+position = Vector2(-40, 16)
+
+[node name="Book3" parent="Books" unique_id=1545120802 instance=ExtResource("8_ale0u")]
+position = Vector2(-24, 0)
+
+[node name="Floor" type="Node2D" parent="." unique_id=1941200475]
 position = Vector2(0, 1)
+
+[node name="Truck" parent="Floor" unique_id=1466916917 instance=ExtResource("9_k6xtq")]
+position = Vector2(-168, 103)
+move_direction = Vector2(0, -500)
+
+[node name="Truck2" parent="Floor" unique_id=238387888 instance=ExtResource("9_k6xtq")]
+position = Vector2(-144, 103)
+move_direction = Vector2(0, -500)
+
+[node name="Truck3" parent="Floor" unique_id=1090491878 instance=ExtResource("9_k6xtq")]
+position = Vector2(-120, 103)
+move_direction = Vector2(0, -500)
+
+[node name="Truck4" parent="Floor" unique_id=1234204098 instance=ExtResource("9_k6xtq")]
+position = Vector2(-96, 103)
+move_direction = Vector2(0, -500)
+
+[node name="Truck5" parent="Floor" unique_id=229518428 instance=ExtResource("9_k6xtq")]
+position = Vector2(-72, 103)
+move_direction = Vector2(0, -500)
+
+[node name="Truck6" parent="Floor" unique_id=869718054 instance=ExtResource("9_k6xtq")]
+position = Vector2(-48, 103)
+move_direction = Vector2(0, -500)
+
+[node name="Truck7" parent="Floor" unique_id=1632100420 instance=ExtResource("9_k6xtq")]
+position = Vector2(-24, 103)
+move_direction = Vector2(0, -500)
+
+[node name="Truck8" parent="Floor" unique_id=1562222348 instance=ExtResource("9_k6xtq")]
+position = Vector2(0, 103)
+move_direction = Vector2(0, -500)
+
+[node name="Spikes" type="Area2D" parent="." unique_id=530074218]
+script = ExtResource("7_y5hg5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes" unique_id=1739852513]
+position = Vector2(80, 24)
+shape = SubResource("RectangleShape2D_ale0u")
+
+[connection signal="area_entered" from="Spikes" to="Player" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Spikes" to="Spikes" method="_on_area_entered"]
+[connection signal="body_entered" from="Spikes" to="Background" method="_on_area_2d_body_entered"]

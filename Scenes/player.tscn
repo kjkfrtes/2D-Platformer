@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://drodpro6sx1gg" path="res://Sprites/ANIMATIONS/Idle/IDLE_CHAR2.png" id="5_pu2lt"]
 [ext_resource type="Texture2D" uid="uid://w8oosuukgx2d" path="res://Sprites/ANIMATIONS/Idle/IDLE_CHAR3.png" id="6_ukyrk"]
 [ext_resource type="Texture2D" uid="uid://cci5hd4s51hbg" path="res://Sprites/ANIMATIONS/Idle/IDLE_CHAR4.png" id="7_gymyn"]
+[ext_resource type="Texture2D" uid="uid://33ajhjd4d0c3" path="res://Sprites/Objects/tile_0067.png" id="12_pu2lt"]
 
 [sub_resource type="Animation" id="Animation_7dp3o"]
 resource_name = "Idle"
@@ -142,10 +143,10 @@ script = ExtResource("3_x3wgy")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2016422003]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1940107558]
+visible = false
 script = ExtResource("4_fkybt")
 
 [node name="HealthContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1658664766]
-visible = false
 offset_right = 80.0
 offset_bottom = 80.0
 
@@ -164,8 +165,34 @@ layout_mode = 2
 texture = ExtResource("4_vgqql")
 expand_mode = 2
 
-[node name="ScoreText" type="Label" parent="CanvasLayer" unique_id=1171088737]
+[node name="Heart4" type="TextureRect" parent="CanvasLayer/HealthContainer" unique_id=628922630]
+layout_mode = 2
+texture = ExtResource("4_vgqql")
+expand_mode = 2
+
+[node name="HistoryContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1671323949]
 visible = false
+offset_left = 344.0
+offset_right = 592.0
+offset_bottom = 80.0
+metadata/_edit_group_ = true
+
+[node name="Heart" type="TextureRect" parent="CanvasLayer/HistoryContainer" unique_id=1030310119]
+layout_mode = 2
+texture = ExtResource("12_pu2lt")
+expand_mode = 2
+
+[node name="Heart2" type="TextureRect" parent="CanvasLayer/HistoryContainer" unique_id=414099516]
+layout_mode = 2
+texture = ExtResource("12_pu2lt")
+expand_mode = 2
+
+[node name="Heart3" type="TextureRect" parent="CanvasLayer/HistoryContainer" unique_id=808382652]
+layout_mode = 2
+texture = ExtResource("12_pu2lt")
+expand_mode = 2
+
+[node name="ScoreText" type="Label" parent="CanvasLayer" unique_id=1171088737]
 offset_left = 19.0
 offset_top = 77.0
 offset_right = 225.0

@@ -3,8 +3,8 @@ extends CharacterBody2D
 @export var acceleration : float = 50
 @export var breaking : float = 20 
 @export var gravity: float = 500
-@export var jump_force : float = 200
-@export var health : int = 3 
+@export var jump_force : float = 300
+@export var health : int = 4
 @onready var sprite : Sprite2D = $sprite
 @onready var anim : AnimationPlayer = $AnimationPlayer
 @onready var audio : AudioStreamPlayer = $AudioStreamPlayer
@@ -16,7 +16,7 @@ var has_double_jumped : bool = false
 var take_damage_sfx : AudioStream = preload("res://Audio/take_damage.wav")
 var coin_sfx : AudioStream = preload("res://Audio/coin.wav")
 
-func _process(delta):
+func _process(_delta):
 	if velocity.x !=0:
 		sprite.flip_h = velocity.x<0
 	_manage_animation()
