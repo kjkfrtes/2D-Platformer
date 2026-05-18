@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ba2bdev3y1o0i" path="res://Scenes/menu.tscn" id="6_m08rq"]
 [ext_resource type="Script" uid="uid://3wdnre15kifo" path="res://Scenes/Kill.gd" id="7_y5hg5"]
 [ext_resource type="PackedScene" uid="uid://cx5sdi7qil7gf" path="res://Scenes/book.tscn" id="8_ale0u"]
+[ext_resource type="PackedScene" uid="uid://dv0g1jn3n7ini" path="res://Scenes/player.tscn" id="9_dvi3f"]
 [ext_resource type="PackedScene" uid="uid://cl7uy56sqnlh5" path="res://Scenes/truck.tscn" id="9_k6xtq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ale0u"]
@@ -96,6 +97,9 @@ script = ExtResource("7_y5hg5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes" unique_id=1739852513]
 position = Vector2(80, 24)
 shape = SubResource("RectangleShape2D_ale0u")
+
+[node name="Player" parent="." unique_id=2101627578 instance=ExtResource("9_dvi3f")]
+position = Vector2(-184, 32)
 
 [connection signal="area_entered" from="Spikes" to="Spikes" method="_on_area_entered"]
 [connection signal="body_entered" from="Spikes" to="Background" method="_on_area_2d_body_entered"]

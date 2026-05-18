@@ -23,7 +23,7 @@ func _process(_delta):
 	_manage_animation()
 	
 	if  global_position.y>600:
-		game_over()
+		call_deferred("game_over")
 
 func _manage_animation (): 
 	if not is_on_floor() and velocity.y<0:

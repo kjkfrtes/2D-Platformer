@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c62ulwdhhey4q" path="res://Scenes/Level_3.tscn" id="6_4ge3q"]
 [ext_resource type="PackedScene" uid="uid://ju24emxsiasv" path="res://Scenes/coin.tscn" id="6_diio2"]
 [ext_resource type="PackedScene" uid="uid://eyths1tg8jyi" path="res://Scenes/enemy.tscn" id="7_v1bqs"]
+[ext_resource type="PackedScene" uid="uid://dv0g1jn3n7ini" path="res://Scenes/player.tscn" id="8_4ge3q"]
 
 [node name="Main" type="Node2D" unique_id=591750393]
 
@@ -115,3 +116,6 @@ move_speed = 30.0
 position = Vector2(445, 64)
 move_direction = Vector2(80, 0)
 move_speed = 60.0
+
+[node name="Player" parent="." unique_id=2101627578 instance=ExtResource("8_4ge3q")]
+position = Vector2(22, 35)

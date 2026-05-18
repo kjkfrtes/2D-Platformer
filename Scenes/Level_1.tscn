@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ju24emxsiasv" path="res://Scenes/coin.tscn" id="5_nh7xm"]
 [ext_resource type="PackedScene" uid="uid://bt1yj4w36bud6" path="res://Scenes/Level_2.tscn" id="6_akpl7"]
 [ext_resource type="AudioStream" uid="uid://bfklw31xisxqn" path="res://Sprites/Characters/audiopapkin-forest-ambience-296528.mp3" id="9_aur7v"]
+[ext_resource type="PackedScene" uid="uid://dv0g1jn3n7ini" path="res://Scenes/player.tscn" id="10_ptpgp"]
 
 [node name="Main" type="Node2D" unique_id=1189919339]
 script = ExtResource("1_ptpgp")
@@ -95,3 +96,6 @@ move_speed = 40.0
 position = Vector2(457, 43)
 move_direction = Vector2(180, 0)
 move_speed = 50.0
+
+[node name="Player" parent="." unique_id=2101627578 instance=ExtResource("10_ptpgp")]
+position = Vector2(15, 35)
