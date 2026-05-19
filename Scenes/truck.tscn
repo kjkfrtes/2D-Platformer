@@ -2,8 +2,47 @@
 
 [ext_resource type="Script" uid="uid://dluyfauaxpffp" path="res://Scenes/truck.gd" id="1_ncoh0"]
 [ext_resource type="Texture2D" uid="uid://c8m5xd6m6o73k" path="res://Sprites/Characters/character_0022.png" id="2_s4pd2"]
+[ext_resource type="Texture2D" uid="uid://dsy8jopuyxaac" path="res://Sprites/Characters/character_0021.png" id="3_v14t0"]
+[ext_resource type="Texture2D" uid="uid://b8wjpkogg00x" path="res://Sprites/Characters/character_0023.png" id="4_sc7ly"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i5131"]
+
+[sub_resource type="Animation" id="Animation_a7upu"]
+resource_name = "Movin"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.58981735, 0.8666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_s4pd2"), ExtResource("3_v14t0"), ExtResource("4_sc7ly"), ExtResource("3_v14t0")]
+}
+
+[sub_resource type="Animation" id="Animation_628k5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_s4pd2")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vox2s"]
+_data = {
+&"Movin": SubResource("Animation_a7upu"),
+&"RESET": SubResource("Animation_628k5")
+}
 
 [node name="Truck" type="Area2D" unique_id=1466916917]
 script = ExtResource("1_ncoh0")
@@ -16,7 +55,7 @@ texture = ExtResource("2_s4pd2")
 shape = SubResource("RectangleShape2D_i5131")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=736919732]
-root_node = NodePath("")
+libraries/ = SubResource("AnimationLibrary_vox2s")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

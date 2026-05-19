@@ -15,13 +15,11 @@ var move_input : float
 var has_double_jumped : bool = false
 var take_damage_sfx : AudioStream = preload("res://Audio/take_damage.wav")
 var coin_sfx : AudioStream = preload("res://Audio/coin.wav")
-var waiting_for_idle = false
 
 func _process(_delta):
 	if velocity.x !=0:
 		sprite.flip_h = velocity.x<0
 	_manage_animation()
-	
 	if  global_position.y>600:
 		call_deferred("game_over")
 
@@ -34,31 +32,21 @@ func _manage_animation ():
 	elif move_input != 0:
 		anim.play("Move")
 	else:
-		if not waiting_for_idle:
-			waiting_for_idle = true
-			await get_tree().create_timer(2.0).timeout
-			anim.play("Idle")
-			waiting_for_idle = false
-
-
-
+		anim.play("Idle")
 
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	
 	move_input = Input.get_axis("Move_left","Move_right")
 	if move_input !=0:
 		velocity.x = lerp(velocity.x, move_input * move_speed, acceleration * delta)
 	else:
 		velocity.x = lerp(velocity.x, 0.0, breaking * delta)
-	
 	if Input.is_action_just_pressed("Jump"):
 		if is_on_floor():
 			velocity.y = -jump_force
 		elif not has_double_jumped:
 			velocity.y = -jump_force
-			
 	move_and_slide()
 
 func take_damage(amount:int):
@@ -66,7 +54,6 @@ func take_damage(amount:int):
 	OnUpdateHealth.emit(health)
 	_damage_flash()
 	play_sound(take_damage_sfx)
-	
 	if health <= 0:
 		call_deferred("game_over")
 

@@ -3,11 +3,13 @@
 [ext_resource type="Script" uid="uid://dm4f85m18rkkw" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://chromqe7htq0y" path="res://Sprites/ANIMATIONS/Walk/Charachter1.png" id="2_fkybt"]
 [ext_resource type="Texture2D" uid="uid://bc8dlin26nbga" path="res://Sprites/ANIMATIONS/Jump/JUMP_CHAR-export3.png" id="3_3smsa"]
+[ext_resource type="Texture2D" uid="uid://xneb7sjmwsey" path="res://Sprites/ANIMATIONS/FALL_CHAR2.png" id="3_olqyp"]
 [ext_resource type="Texture2D" uid="uid://bcqu7o0uwapw4" path="res://Sprites/ANIMATIONS/Jump/JUMP_CHAR-export1.png" id="3_tx1dd"]
 [ext_resource type="Script" uid="uid://cwsuk53rl3upj" path="res://Scripts/camera_shake.gd" id="3_x3wgy"]
 [ext_resource type="Script" uid="uid://qmw8s4lambmm" path="res://Scripts/player_ui.gd" id="4_fkybt"]
 [ext_resource type="Texture2D" uid="uid://c8c4hvh0l6vlf" path="res://Sprites/ANIMATIONS/Idle/IDLE_CHAR1.png" id="4_gymyn"]
 [ext_resource type="Texture2D" uid="uid://miq1be7j6s70" path="res://Sprites/Objects/tile_0044.png" id="4_vgqql"]
+[ext_resource type="Texture2D" uid="uid://4ylw74sdly7d" path="res://Sprites/ANIMATIONS/FALL_CHAR3.png" id="4_wpjfl"]
 [ext_resource type="Texture2D" uid="uid://drodpro6sx1gg" path="res://Sprites/ANIMATIONS/Idle/IDLE_CHAR2.png" id="5_pu2lt"]
 [ext_resource type="Texture2D" uid="uid://w8oosuukgx2d" path="res://Sprites/ANIMATIONS/Idle/IDLE_CHAR3.png" id="6_ukyrk"]
 [ext_resource type="Texture2D" uid="uid://cci5hd4s51hbg" path="res://Sprites/ANIMATIONS/Idle/IDLE_CHAR4.png" id="7_gymyn"]
@@ -20,8 +22,13 @@
 [ext_resource type="Texture2D" uid="uid://6atpqiuy8ho4" path="res://Sprites/ANIMATIONS/Walk/Charachter7.png" id="14_2ijsl"]
 [ext_resource type="Texture2D" uid="uid://w7ld6y6qnor5" path="res://Sprites/ANIMATIONS/Walk/Charachter8.png" id="15_p1odr"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fkybt"]
+size = Vector2(27, 20)
+
 [sub_resource type="Animation" id="Animation_pu2lt"]
 resource_name = "Fall"
+length = 6.0
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -29,10 +36,10 @@ tracks/0/path = NodePath("sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.13333334, 0.23333335),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_fkybt")]
+"values": [ExtResource("2_fkybt"), ExtResource("3_olqyp"), ExtResource("4_wpjfl")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -45,6 +52,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(2.0000005, -3.562501)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:shape")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("RectangleShape2D_fkybt")]
 }
 
 [sub_resource type="Animation" id="Animation_7dp3o"]
@@ -208,6 +227,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(2.0000005, -3.562501)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:shape")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("RectangleShape2D_fkybt")]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gymyn"]
 _data = {
@@ -217,9 +248,6 @@ _data = {
 &"Move": SubResource("Animation_gymyn"),
 &"RESET": SubResource("Animation_tx1dd")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fkybt"]
-size = Vector2(27, 20)
 
 [sub_resource type="LabelSettings" id="LabelSettings_fkybt"]
 font_size = 40
@@ -254,7 +282,6 @@ script = ExtResource("3_x3wgy")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2016422003]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1940107558]
-visible = false
 script = ExtResource("4_fkybt")
 
 [node name="HealthContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1658664766]
