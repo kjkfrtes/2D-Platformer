@@ -4,14 +4,27 @@
 [ext_resource type="Texture2D" uid="uid://4suyrq3fwxwn" path="res://Sprites/Backgrounds/8bit-pixel-art-night-sky-game-space-landscape-vector.jpg" id="2_ccifb"]
 [ext_resource type="TileSet" uid="uid://5pqnijj5owkc" path="res://Sprites/Legacy-Fantasy - High Forest 2.3/Assets/Level_3.tres" id="3_ccifb"]
 [ext_resource type="PackedScene" uid="uid://7r26fmpk331t" path="res://Scenes/end_flag.tscn" id="5_dudvk"]
+[ext_resource type="PackedScene" uid="uid://ju24emxsiasv" path="res://Scenes/coin.tscn" id="6_dvi3f"]
 [ext_resource type="PackedScene" uid="uid://ba2bdev3y1o0i" path="res://Scenes/menu.tscn" id="6_m08rq"]
 [ext_resource type="Script" uid="uid://3wdnre15kifo" path="res://Scenes/Kill.gd" id="7_y5hg5"]
 [ext_resource type="PackedScene" uid="uid://cx5sdi7qil7gf" path="res://Scenes/book.tscn" id="8_ale0u"]
 [ext_resource type="PackedScene" uid="uid://dv0g1jn3n7ini" path="res://Scenes/player.tscn" id="9_dvi3f"]
 [ext_resource type="PackedScene" uid="uid://cl7uy56sqnlh5" path="res://Scenes/truck.tscn" id="9_k6xtq"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dvi3f"]
+size = Vector2(24, 6.625)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ale0u"]
-size = Vector2(98, 18)
+size = Vector2(120, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_151xs"]
+size = Vector2(12, 14.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dudvk"]
+size = Vector2(12, 14.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m08rq"]
+size = Vector2(14, 7.3125)
 
 [node name="Main" type="Node2D" unique_id=1514734415]
 
@@ -30,12 +43,12 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_ccifb")
 
 [node name="8BitPixelArtNightSkyGameSpaceLandscapeVector" type="Sprite2D" parent="Background" unique_id=37226835]
-position = Vector2(304, -72)
+position = Vector2(224, -88)
 scale = Vector2(0.7, 0.565)
 texture = ExtResource("2_ccifb")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=42264429]
-tile_map_data = PackedByteArray("AAAAAAIAAAACAAEAAAABAAIAAAACAAEAAAACAAIAAAAEAAEAAAACAAEAAgAAAAoAAAADAAEAAgAAAAoAAAAEAAEAAgAAAAoAAAAGAAEAAgAAAAoAAAAFAAEAAgAAAAoAAAAHAAEAAgAAAAoAAAD//wIAAAACAAEAAAD+/wIAAAABAAEAAAD9/wIAAAACAAEAAAD8/wIAAAACAAEAAAD7/wIAAAABAAEAAAD6/wIAAAACAAEAAAD5/wIAAAABAAEAAAD4/wIAAAACAAEAAAD3/wIAAAACAAEAAAD2/wIAAAABAAEAAAD1/wIAAAACAAEAAAD0/wIAAAACAAEAAADz/wIAAAAAAAEAAAA=")
+tile_map_data = PackedByteArray("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AAA3AP7/AgAEAAkAADAtAP3/AAAGAAUAAAAuAP3/AAAGAAUAAAAvAP3/AAAGAAUAAAAwAP3/AAAHAAUAAAAxAP3/AAAHAAUAAAA0AP3/AAAHAAUAAAA1AP3/AAAHAAUAAAA2AP3/AAAHAAUAAAA3AP3/AAAHAAUAAAA4AP3/AAAHAAUAAAAZAPL/AAAEAAgAAAAZAPH/AAAEAAcAAAAZAPD/AAAEAAgAAAAZAO//AAAEAAcAAAAYAPH/AAABAAgAAAAYAPL/AAABAAcAAAAYAPP/AAABAAgAAAAYAPT/AAABAAkAAAAZAPP/AAAEAAcAAAAZAPT/AAAEAAgAAAAYAO//AAADAAcAAAAYAPD/AAABAAcAAAAVAO3/AAADAAYAAAAVAO7/AAADAAcAAAAVAO//AAABAAgAAAAWAO3/AAACAAUAAAAWAO7/AAACAAYAAAAWAO//AAACAAgAAAAXAO3/AAADAAUAAAAXAO7/AAADAAYAAAAXAO//AAADAAgAAAATAOz/AAABAAUAAAATAO3/AAABAAYAAAATAO7/AAACAAgAAAAUAOz/AAACAAUAAAAUAO3/AAACAAYAAAAUAO7/AAADAAgAAAAVAOz/AAADAAUAAAARAOz/AAAAAAUAAAARAO3/AAAAAAYAAAARAO7/AAAAAAgAAAASAOz/AAABAAUAAAASAO3/AAABAAYAAAASAO7/AAABAAgAAAARAO//AAAAAAkAAAASAO//AAABAAkAAAATAO//AAACAAkAAAAUAO//AAAAAAgAAAAUAPD/AAAAAAkAAAAVAPD/AAABAAkAAAAWAPD/AAACAAkAAAAXAPD/AAABAAYAAAAXAPH/AAAAAAgAAAAXAPL/AAAAAAcAAAAXAPP/AAAAAAgAAAAXAPT/AAAAAAkAAAA=")
 tile_set = ExtResource("3_ccifb")
 metadata/_edit_lock_ = true
 
@@ -45,61 +58,87 @@ scene_to_load = ExtResource("6_m08rq")
 
 [node name="Coins" type="Node2D" parent="." unique_id=1960840589]
 
+[node name="Coin" parent="Coins" unique_id=1570100903 instance=ExtResource("6_dvi3f")]
+position = Vector2(160, -56)
+
+[node name="Coin2" parent="Coins" unique_id=1763087343 instance=ExtResource("6_dvi3f")]
+position = Vector2(344, 24)
+
+[node name="Coin3" parent="Coins" unique_id=125897317 instance=ExtResource("6_dvi3f")]
+position = Vector2(856, -144)
+
+[node name="Coin4" parent="Coins" unique_id=823454464 instance=ExtResource("6_dvi3f")]
+position = Vector2(224, -152)
+
+[node name="Coin5" parent="Coins" unique_id=1325751660 instance=ExtResource("6_dvi3f")]
+position = Vector2(392, -168)
+
 [node name="Books" type="Node2D" parent="." unique_id=1091569908]
 position = Vector2(16, -40)
 
-[node name="Book" parent="Books" unique_id=564750538 instance=ExtResource("8_ale0u")]
-
 [node name="Book2" parent="Books" unique_id=1802532856 instance=ExtResource("8_ale0u")]
-position = Vector2(-40, 16)
-
-[node name="Book3" parent="Books" unique_id=1545120802 instance=ExtResource("8_ale0u")]
-position = Vector2(-24, 0)
+position = Vector2(-88, -176)
 
 [node name="Floor" type="Node2D" parent="." unique_id=1941200475]
 position = Vector2(0, 1)
 
 [node name="Truck" parent="Floor" unique_id=1466916917 instance=ExtResource("9_k6xtq")]
-position = Vector2(-168, 103)
+position = Vector2(240, 87)
 move_direction = Vector2(0, -500)
 
 [node name="Truck2" parent="Floor" unique_id=238387888 instance=ExtResource("9_k6xtq")]
-position = Vector2(-144, 103)
+position = Vector2(264, 87)
 move_direction = Vector2(0, -500)
 
 [node name="Truck3" parent="Floor" unique_id=1090491878 instance=ExtResource("9_k6xtq")]
-position = Vector2(-120, 103)
+position = Vector2(288, 87)
 move_direction = Vector2(0, -500)
 
 [node name="Truck4" parent="Floor" unique_id=1234204098 instance=ExtResource("9_k6xtq")]
-position = Vector2(-96, 103)
+position = Vector2(312, 87)
 move_direction = Vector2(0, -500)
 
 [node name="Truck5" parent="Floor" unique_id=229518428 instance=ExtResource("9_k6xtq")]
-position = Vector2(-72, 103)
+position = Vector2(336, 87)
 move_direction = Vector2(0, -500)
 
 [node name="Truck6" parent="Floor" unique_id=869718054 instance=ExtResource("9_k6xtq")]
-position = Vector2(-48, 103)
+position = Vector2(360, 87)
 move_direction = Vector2(0, -500)
 
 [node name="Truck7" parent="Floor" unique_id=1632100420 instance=ExtResource("9_k6xtq")]
-position = Vector2(-24, 103)
+position = Vector2(384, 87)
 move_direction = Vector2(0, -500)
 
 [node name="Truck8" parent="Floor" unique_id=1562222348 instance=ExtResource("9_k6xtq")]
-position = Vector2(0, 103)
+position = Vector2(408, 87)
 move_direction = Vector2(0, -500)
 
 [node name="Spikes" type="Area2D" parent="." unique_id=530074218]
 script = ExtResource("7_y5hg5")
 
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Spikes" unique_id=584529270]
+position = Vector2(-112, -184)
+shape = SubResource("RectangleShape2D_dvi3f")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes" unique_id=1739852513]
-position = Vector2(80, 24)
+position = Vector2(-80, 32)
 shape = SubResource("RectangleShape2D_ale0u")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes" unique_id=1785748520]
+position = Vector2(-88, 8)
+shape = SubResource("RectangleShape2D_151xs")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Spikes" unique_id=1743777077]
+position = Vector2(-72, -24)
+shape = SubResource("RectangleShape2D_dudvk")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Spikes" unique_id=1919238479]
+position = Vector2(-39, -180.34375)
+shape = SubResource("RectangleShape2D_m08rq")
+
 [node name="Player" parent="." unique_id=2101627578 instance=ExtResource("9_dvi3f")]
-position = Vector2(-184, 32)
+position = Vector2(216, -152)
 
 [connection signal="area_entered" from="Spikes" to="Spikes" method="_on_area_entered"]
 [connection signal="body_entered" from="Spikes" to="Background" method="_on_area_2d_body_entered"]
