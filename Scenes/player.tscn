@@ -256,6 +256,8 @@ shadow_color = Color(0, 0, 0, 0.5686275)
 
 [node name="Player" type="CharacterBody2D" unique_id=2101627578 groups=["Player"]]
 script = ExtResource("1_cvnsp")
+gravity = 400.0
+jump_force = 300.0
 
 [node name="Timer" type="Timer" parent="." unique_id=1664245407]
 wait_time = 3.0
@@ -282,7 +284,6 @@ script = ExtResource("3_x3wgy")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2016422003]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1940107558]
-visible = false
 script = ExtResource("4_fkybt")
 
 [node name="HealthContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1658664766]

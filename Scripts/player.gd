@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var acceleration : float = 50
 @export var breaking : float = 20 
 @export var gravity: float = 500
-@export var jump_force : float = 300
+@export var jump_force : float = 350
 @export var health : int = 4
 @onready var sprite : Sprite2D = $sprite
 @onready var anim : AnimationPlayer = $AnimationPlayer
@@ -22,6 +22,8 @@ func _process(_delta):
 		sprite.flip_h = velocity.x<0
 	_manage_animation()
 	if  global_position.y>600:
+		if not is_inside_tree():
+			return
 		call_deferred("game_over")
 
 func _manage_animation (): 
@@ -59,6 +61,8 @@ func take_damage(amount:int):
 	_damage_flash()
 	play_sound(take_damage_sfx)
 	if health <= 0:
+		if not is_inside_tree():
+			return
 		call_deferred("game_over")
 
 func _damage_flash  ():
