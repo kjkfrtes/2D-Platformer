@@ -15,10 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://cl7uy56sqnlh5" path="res://Scenes/truck.tscn" id="9_k6xtq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dvi3f"]
-size = Vector2(24, 6.625)
+size = Vector2(20, 6.625)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ale0u"]
-size = Vector2(120, 12)
+size = Vector2(112, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_151xs"]
 size = Vector2(12, 14.625)
@@ -27,7 +27,7 @@ size = Vector2(12, 14.625)
 size = Vector2(12, 14.625)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m08rq"]
-size = Vector2(112, 7.3125)
+size = Vector2(105, 7.3125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqn1a"]
 size = Vector2(234, 4.6875)
@@ -561,7 +561,7 @@ move_speed = 50.0
 script = ExtResource("7_y5hg5")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Spikes" unique_id=584529270]
-position = Vector2(-112, -184)
+position = Vector2(-114, -184)
 shape = SubResource("RectangleShape2D_dvi3f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes" unique_id=1739852513]
@@ -577,7 +577,7 @@ position = Vector2(-72, -24)
 shape = SubResource("RectangleShape2D_dudvk")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Spikes" unique_id=1919238479]
-position = Vector2(136, -26)
+position = Vector2(136.5, -24)
 shape = SubResource("RectangleShape2D_m08rq")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Spikes" unique_id=1499956422]
