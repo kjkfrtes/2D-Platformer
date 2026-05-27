@@ -1,4 +1,4 @@
 extends Node2D
 @onready var music = $AudioStreamPlayer
-#func _ready():
-	#music.play()
+func _ready():
+	music.play()

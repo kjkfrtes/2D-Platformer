@@ -1,7 +1,9 @@
 [gd_scene format=4 uid="uid://c62ulwdhhey4q"]
 
 [ext_resource type="Script" uid="uid://dfoqjys73ibnp" path="res://Scripts/background_parallax.gd" id="1_ale0u"]
+[ext_resource type="Script" uid="uid://dx3iqgokskjq5" path="res://Scenes/level_3.gd" id="1_m08rq"]
 [ext_resource type="Texture2D" uid="uid://4suyrq3fwxwn" path="res://Sprites/Backgrounds/8bit-pixel-art-night-sky-game-space-landscape-vector.jpg" id="2_ccifb"]
+[ext_resource type="AudioStream" uid="uid://bfklw31xisxqn" path="res://Sprites/Characters/audiopapkin-forest-ambience-296528.mp3" id="2_kqn1a"]
 [ext_resource type="TileSet" uid="uid://5pqnijj5owkc" path="res://Sprites/Legacy-Fantasy - High Forest 2.3/Assets/Level_3.tres" id="3_ccifb"]
 [ext_resource type="PackedScene" uid="uid://cy4pmsb0qk5hg" path="res://Scenes/gg_screen.tscn" id="5_151xs"]
 [ext_resource type="PackedScene" uid="uid://7r26fmpk331t" path="res://Scenes/end_flag.tscn" id="5_dudvk"]
@@ -73,6 +75,12 @@ size = Vector2(8, 27.449219)
 size = Vector2(37.25, 6.5)
 
 [node name="Main" type="Node2D" unique_id=1514734415]
+script = ExtResource("1_m08rq")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=217895555]
+stream = ExtResource("2_kqn1a")
+volume_db = -5.49
+autoplay = true
 
 [node name="Background" type="Node2D" parent="." unique_id=985455218]
 position = Vector2(-48, -200)
