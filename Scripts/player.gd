@@ -69,14 +69,16 @@ func _damage_flash  ():
 	sprite.modulate = Color.RED
 	await get_tree().create_timer(0.05).timeout
 	sprite.modulate = Color.WHITE
-
+#new shit 
 func game_over():
 	if not is_inside_tree():
 		return
 
+	
 	get_tree().call_deferred(
-		"change_scene_to_file",
-		"res://Scenes/menu.tscn"
+		"reload_current_scene"
+		#"change_scene_to_file",
+		#"res://Scenes/menu.tscn"
 	)
 
 func increase_score (amount : int):

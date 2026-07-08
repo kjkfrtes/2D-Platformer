@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://didwgyhnc7ayp" path="res://Sprites/ANIMATIONS/Walk/Charachter6.png" id="13_bi64h"]
 [ext_resource type="Texture2D" uid="uid://6atpqiuy8ho4" path="res://Sprites/ANIMATIONS/Walk/Charachter7.png" id="14_2ijsl"]
 [ext_resource type="Texture2D" uid="uid://w7ld6y6qnor5" path="res://Sprites/ANIMATIONS/Walk/Charachter8.png" id="15_p1odr"]
+[ext_resource type="PackedScene" uid="uid://bx8xhvq8a6gwy" path="res://Scenes/Respawn.tscn" id="22_wpjfl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkybt"]
 size = Vector2(27, 20)
@@ -339,3 +340,13 @@ offset_right = 225.0
 offset_bottom = 113.0
 text = "Score: 500"
 label_settings = SubResource("LabelSettings_fkybt")
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=1215635064]
+offset_left = 1007.0
+offset_top = 17.0
+offset_right = 1131.0
+offset_bottom = 76.0
+text = "Home"
+
+[node name="Area2D" parent="." unique_id=1391086461 instance=ExtResource("22_wpjfl")]
+position = Vector2(1069, 47)
